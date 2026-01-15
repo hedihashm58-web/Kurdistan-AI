@@ -2,6 +2,7 @@
 // index.tsx
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import ReactDOM from 'react-dom/client';
+import './app.css';
 import App from './App';
 
 const rootElement = document.getElementById('root');
