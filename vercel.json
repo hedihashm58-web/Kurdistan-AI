@@ -1,0 +1,21 @@
+
+{
+  "version": 2,
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "cleanUrls": true
+}
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ]
+  {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
+}
+}

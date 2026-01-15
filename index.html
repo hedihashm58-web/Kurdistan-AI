@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#020305">
+    <meta name="description" content="KurdAI Pro - The National AI Framework of Kurdistan. Analytics, Art, and Culture.">
+    
+    <!-- PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="KurdAI Pro">
+    
+    <title>KurdAI Pro - Royal Gold Edition</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-gold: #FFD700;
+            --deep-gold: #B8860B;
+            --soft-gold: #FFEC8B;
+            --obsidian: #020305;
+        }
+        body {
+            font-family: 'Outfit', 'Noto Sans Arabic', sans-serif;
+            background-color: var(--obsidian);
+            color: #f8fafc;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.05) 0px, transparent 30%),
+                radial-gradient(circle at 100% 100%, rgba(255, 215, 0, 0.03) 0px, transparent 30%);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(10, 11, 15, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .royal-gold-gradient {
+            background: linear-gradient(145deg, #FFD700 0%, #EAB308 40%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .royal-sun-emblem {
+            background: linear-gradient(135deg, #FFF7AD 0%, #FFD700 45%, #B8860B 100%);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+        .gold-border-glow {
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            transition: all 0.2s ease-out;
+        }
+        .gold-border-glow:hover {
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+        * {
+            transition: background-color 0.2s, border-color 0.2s, opacity 0.2s;
+        }
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 215, 0, 0.15); border-radius: 10px; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
