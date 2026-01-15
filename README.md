@@ -48,6 +48,22 @@ yarn dev
 - **Visuals**: Veo 3.1 Cinematic Engine
 - **Tooling**: Vite 6.0
 
+## 🌟 Features
+
+- **🏛️ Chat Interface** - AI-powered conversations with Kurdish cultural context
+- **📜 History Section** - Explore Kurdish history and notable figures  
+- **🗺️ Landmark Explorer** - Interactive map of Kurdistan's landmarks
+- **📐 Math Analyzer** - Scientific analysis and data visualization
+- **📜 Translator** - Multi-dialect Kurdish translation (Sorani, Kurmanji)
+- **🩺 Health Assistant** - Medical advice and symptom analysis
+- **🎨 Art Studio** - AI-generated Kurdish-themed artwork
+- **🎥 Video Studio** - Cinematic video generation
+- **🔊 Voice Assistant** - Real-time voice interaction
+
+## 📚 Documentation
+
+For detailed deployment instructions, configuration, and troubleshooting, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## 📝 پەرەپێدەر (Developer)
 **Hedi Hashim Fattah** - Kurdistan AI Research Lab (2025)
 
@@ -55,4 +71,5 @@ yarn dev
 
 ## ⚠️ Notes
 - Ensure you have an environment variable `API_KEY` configured in your hosting platform or `.env` file.
+- Copy `.env.example` to `.env` and add your Google Gemini API key.
 - If you encounter `node-domexception` warnings, ensure you are using **Node.js v20 or higher**, as `DOMException` is now native to the platform.
