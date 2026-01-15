@@ -1,0 +1,124 @@
+/* Import Google Fonts first */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@100;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --royal-gold: #FFD700;
+  --deep-gold: #B8860B;
+  --soft-gold: #FFEC8B;
+  --obsidian: #020305;
+}
+
+body {
+  font-family: 'Outfit', 'Noto Sans Arabic', sans-serif;
+  background-color: var(--obsidian);
+  color: #f8fafc;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.05) 0px, transparent 30%),
+    radial-gradient(circle at 100% 100%, rgba(255, 215, 0, 0.03) 0px, transparent 30%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-panel {
+  background: rgba(10, 11, 15, 0.7);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.royal-gold-gradient {
+  background: linear-gradient(145deg, #FFD700 0%, #EAB308 40%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.royal-sun-emblem {
+  background: linear-gradient(135deg, #FFF7AD 0%, #FFD700 45%, #B8860B 100%);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  transition: all 0.2s ease-out;
+}
+
+.gold-border-glow:hover {
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+* {
+  transition: background-color 0.2s, border-color 0.2s, opacity 0.2s;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.15);
+  border-radius: 10px;
+}
+
+/* Animation classes */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Fade in animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.slide-in-from-bottom-4 {
+  animation: slide-in-from-bottom 0.5s ease-out;
+}
+
+.duration-500 {
+  animation-duration: 500ms;
+}
