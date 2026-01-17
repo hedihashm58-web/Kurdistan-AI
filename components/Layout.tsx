@@ -16,6 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeView, onViewChange, bac
 
   const navItems = [
     { id: View.CHAT, label: 'گفتوگۆی ژیر', icon: '🏛️', desc: 'ژیریی شیکاری و ڕاوێژکاری' },
+    { id: View.AGENT, label: 'ئەیجێنتی زیرەک', icon: '🤖', desc: 'جێبەجێکردنی ئەرک و چارەسەرکردن' },
     { id: View.HISTORY, label: 'کۆشکی مێژوو', icon: '📜', desc: 'ڕەچەڵەک و سەرکردەکان' },
     { id: View.EXPLORE, label: 'نەخشەی کوردستان', icon: '🗺️', desc: 'گەڕان بەدوای شوێنەوارەکان' },
     { id: View.MATH, label: 'شیکاری زانستی', icon: '📐', desc: 'شیکاریی داتا و هاوکێشەکان' },

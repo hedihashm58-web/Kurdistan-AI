@@ -10,6 +10,7 @@ import VoiceAssistant from './components/VoiceAssistant';
 import HealthAssistant from './components/HealthAssistant';
 import LandmarkExplorer from './components/LandmarkExplorer';
 import HistorySection from './components/HistorySection';
+import Agent from './components/Agent';
 import { View } from './types';
 
 const App: React.FC = () => {
@@ -28,6 +29,8 @@ const App: React.FC = () => {
             <ChatInterface />
           </div>
         );
+      case View.AGENT:
+        return <Agent />;
       case View.HISTORY:
         return <HistorySection />;
       case View.EXPLORE:
