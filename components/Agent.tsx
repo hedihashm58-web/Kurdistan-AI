@@ -23,9 +23,12 @@ const Agent: React.FC = () => {
   }, [tasks, agentThinking]);
 
   const executeTask = async (taskDescription: string) => {
+    // Sanitize task description by trimming and limiting length
+    const sanitizedDescription = taskDescription.trim().slice(0, 1000);
+    
     const newTask: Task = {
-      id: Date.now().toString(),
-      description: taskDescription,
+      id: crypto.randomUUID(),
+      description: sanitizedDescription,
       status: 'pending',
       timestamp: new Date()
     };
@@ -40,7 +43,7 @@ const Agent: React.FC = () => {
         t.id === newTask.id ? { ...t, status: 'running' } : t
       ));
 
-      const agentPrompt = `تۆ ئەیجێنتێکی زیرەک و توانایی بەجێگەیاندنی ئەرکەکانت. ئەرکی دراو: ${taskDescription}
+      const agentPrompt = `تۆ ئەیجێنتێکی زیرەک و توانایی بەجێگەیاندنی ئەرکەکانت. ئەرکی دراو: ${sanitizedDescription}
 
 تکایە بە وردی بیشکۆیەوە و وەڵامێکی تەواو و بەکەڵک بدەرەوە. ئەگەر ئەرکەکە پێویستی بە چەند هەنگاوێک هەیە، بەشێوەیەکی ڕێکوپێک ڕوونی بکەرەوە.`;
 
