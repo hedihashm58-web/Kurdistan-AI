@@ -2,15 +2,18 @@
 import React, { useState } from 'react';
 import { View } from '../types';
 import FrameworkModal from './FrameworkModal';
+import { User } from '../services/authService';
 
 interface LayoutProps {
   children: React.ReactNode;
   activeView: View;
   onViewChange: (view: View) => void;
   backgroundImage?: string;
+  currentUser?: User | null;
+  onLogout?: () => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, activeView, onViewChange, backgroundImage }) => {
+const Layout: React.FC<LayoutProps> = ({ children, activeView, onViewChange, backgroundImage, currentUser, onLogout }) => {
   const [isVaultOpen, setIsVaultOpen] = useState(false);
   const [isFrameworkOpen, setIsFrameworkOpen] = useState(false);
 
@@ -64,8 +67,26 @@ const Layout: React.FC<LayoutProps> = ({ children, activeView, onViewChange, bac
           </div>
         </div>
 
-        {/* Left (End in RTL): Service Toggle */}
-        <div className="justify-self-end flex items-center">
+        {/* Left (End in RTL): Service Toggle + User */}
+        <div className="justify-self-end flex items-center gap-2 md:gap-3">
+          {currentUser && (
+            <div className="hidden sm:flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2 bg-white/5 border border-white/10 rounded-full">
+              <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-yellow-500 font-black text-sm select-none">
+                {(currentUser.username.charAt(0) || '?').toUpperCase()}
+              </div>
+              <span className="text-[9px] md:text-[11px] font-bold text-slate-300 font-['Noto_Sans_Arabic'] max-w-[80px] truncate">
+                {currentUser.username}
+              </span>
+              <button
+                onClick={onLogout}
+                className="text-slate-500 hover:text-red-400 transition-colors text-xs font-black ml-1"
+                title="چوونەدەرەوە"
+                aria-label="چوونەدەرەوە"
+              >
+                ✕
+              </button>
+            </div>
+          )}
           <button
             onClick={() => setIsVaultOpen(true)}
             className="flex items-center gap-3 md:gap-5 pl-2 pr-4 md:pr-8 py-2 bg-yellow-500/5 border border-yellow-500/20 rounded-full hover:bg-yellow-500/10 transition-all active:scale-95 group relative overflow-hidden shadow-inner"

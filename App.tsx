@@ -10,11 +10,18 @@ import VoiceAssistant from './components/VoiceAssistant';
 import HealthAssistant from './components/HealthAssistant';
 import LandmarkExplorer from './components/LandmarkExplorer';
 import HistorySection from './components/HistorySection';
+import AuthModal from './components/AuthModal';
+import { loadSession, clearSession, User } from './services/authService';
 import { View } from './types';
 
 const App: React.FC = () => {
+  const [currentUser, setCurrentUser] = useState<User | null>(() => loadSession());
   const [activeView, setActiveView] = useState<View>(View.CHAT);
   const [bgImage, setBgImage] = useState<string | undefined>('https://images.unsplash.com/photo-1644342352822-5f606821262d?q=80&w=2000&auto=format&fit=crop');
+
+  if (!currentUser) {
+    return <AuthModal onAuthenticated={(user) => setCurrentUser(user)} />;
+  }
 
   const renderView = () => {
     switch (activeView) {
@@ -53,8 +60,13 @@ const App: React.FC = () => {
     setActiveView(view);
   };
 
+  const handleLogout = () => {
+    clearSession();
+    setCurrentUser(null);
+  };
+
   return (
-    <Layout activeView={activeView} onViewChange={handleViewChange} backgroundImage={bgImage}>
+    <Layout activeView={activeView} onViewChange={handleViewChange} backgroundImage={bgImage} currentUser={currentUser} onLogout={handleLogout}>
       {renderView()}
     </Layout>
   );
